@@ -14,11 +14,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-##publish pages
+## publish pages
 
 https://username:password@github.com/username/repository.git
 
-##Demo
+## Demo
 
 https://munna.github.io/AngularJs-boilerplate-IdentityServer4
 
