@@ -1,0 +1,28 @@
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">Cover</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" [routerLinkActive]="['active']"  routerLink="/">Home</a>
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/protected">Protected</a>
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/call-api">Call API</a>
+          <a  *ngIf="this.authService.getClaims()!=null"  class="nav-link" href="#" (click)="logout()"  >{{this.authService.getClaims().name}} Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    
+    
+    <main role="main" class="inner cover">
+        <router-outlet></router-outlet>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      </div>
+    </footer>
+  </div><!--The content below is only a placeholder and can be replaced.-->
+
+
