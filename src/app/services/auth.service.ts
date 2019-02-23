@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { UserManager, UserManagerSettings, User, WebStorageStateStore} from 'oidc-client';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 @Injectable()
 export class AuthService {
-  private manager = new UserManager(getClientSettings());
+  private manager = new UserManager(environment.openIdSettings);
   private user: User = null;
   constructor(private router: Router) {
     this.manager.getUser().then(user => {
@@ -37,24 +38,22 @@ Logout(): Promise<void> {
 completeAuthentication(): Promise<void> {
   return this.manager.signinRedirectCallback().then(user => {
       this.user = user;
-      //this.router.initialNavigation();
-      //this.router.navigate(['/protected']);
   });
 }
 
 }
-export function getClientSettings(): UserManagerSettings {
-  return {
-      authority: 'https://demo.identityserver.io/',
-      client_id: 'implicit',
-      redirect_uri: 'http://localhost:4200/auth-callback',
-      post_logout_redirect_uri: 'http://localhost:4200/',
-      response_type: 'id_token token',
-      scope: 'openid profile api',
-      filterProtocolClaims: true,
-      loadUserInfo: true,
-      silent_redirect_uri: 'http://localhost:4200/silent_refresh.html'
-      //userStore: new WebStorageStateStore({ store: window.localStorage  })
+// export function getClientSettings(): UserManagerSettings {
+//   return {
+//       authority: 'https://demo.identityserver.io/',
+//       client_id: 'implicit',
+//       redirect_uri: 'http://localhost:4200/auth-callback',
+//       post_logout_redirect_uri: 'http://localhost:4200/',
+//       response_type: 'id_token token',
+//       scope: 'openid profile api',
+//       filterProtocolClaims: true,
+//       loadUserInfo: true,
+//       silent_redirect_uri: 'http://localhost:4200/silent_refresh.html'
+//       //userStore: new WebStorageStateStore({ store: window.localStorage  })
 
-  };
-}
+//   };
+// }
