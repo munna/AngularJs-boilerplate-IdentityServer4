@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   openIdSettings: {
-    authority: 'https://demo.identityserver.io/',
+    authority: 'https://auth.matareha.com/',//'https://demo.identityserver.io/',
     client_id: 'implicit',
     redirect_uri: 'https://munna.github.io/AngularJs-boilerplate-IdentityServer4/auth-callback',
     post_logout_redirect_uri: 'https://munna.github.io/AngularJs-boilerplate-IdentityServer4/',
